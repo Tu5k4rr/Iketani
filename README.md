@@ -1,0 +1,2 @@
+# Iketani
+Simple Discord Bot
