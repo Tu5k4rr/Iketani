@@ -7,7 +7,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="You"))
-    #await client.change_presence(activity=discord.Watching('Python3'))
+    
 #Read auth Token file
 with open('foken.txt', 'r') as file:
     token = file.read()
