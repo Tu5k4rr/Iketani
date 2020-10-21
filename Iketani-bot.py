@@ -1,13 +1,13 @@
-import json
-import discord
+import json, re, discord, discord.utils
 from discord.ext import commands
-import discord.utils
-import re
 
 
 #declaring client
 client = discord.Client()
-
+@client.event
+async def on_ready():
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="You"))
+    #await client.change_presence(activity=discord.Watching('Python3'))
 #Read auth Token file
 with open('foken.txt', 'r') as file:
     token = file.read()
@@ -35,7 +35,7 @@ async def on_message(message, case_insensitive=True):
         counters = load_counters()
         counters["f"] += 1
         channel = message.channel
-        await channel.send(f'フ count - Total: {str(counters["f"])}')        
+        await channel.send(f'フ count - Total: {str(counters["f"])}')
         save_counters(counters)
 
 
